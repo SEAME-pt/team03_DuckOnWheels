@@ -1,0 +1,58 @@
+name: Link Pull Request to Milestone
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  link-pr:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+
+    steps:
+      - name: Link PR to Issue Milestone or Active Sprint
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const repo = context.repo.repo;
+            const owner = context.repo.owner;
+
+            // Get linked issues from PR body (like "Closes #12")
+            const issueNumbers = [...pr.body.matchAll(/#(\d+)/g)].map(m => m[1]);
+            let milestone = null;
+
+            if (issueNumbers.length > 0) {
+              // Try to get milestone from first linked issue
+              const issue = await github.rest.issues.get({
+                owner, repo, issue_number: issueNumbers[0]
+              });
+              milestone = issue.data.milestone;
+              if (milestone) {
+                console.log(`Linked to milestone from issue #${issueNumbers[0]}: ${milestone.title}`);
+              }
+            }
+
+            if (!milestone) {
+              // Get the latest open milestone (active sprint)
+              const milestones = await github.rest.issues.listMilestones({
+                owner, repo, state: "open"
+              });
+              if (milestones.data.length > 0) {
+                milestone = milestones.data.sort((a,b) => new Date(a.due_on) - new Date(b.due_on))[0];
+                console.log(`No issue milestone found — linking to active sprint: ${milestone.title}`);
+              } else {
+                console.log("No active milestones found.");
+              }
+            }
+
+            if (milestone) {
+              await github.rest.issues.update({
+                owner,
+                repo,
+                issue_number: pr.number,
+                milestone: milestone.number
+              });
+              console.log(`✅ Linked PR #${pr.number} to milestone "${milestone.title}"`);
+            }
