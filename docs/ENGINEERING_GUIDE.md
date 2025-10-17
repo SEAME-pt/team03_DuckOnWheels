@@ -1,6 +1,6 @@
 # Team 03 DuckOnWheels Engineering Guide
 
-This document defines the internal engineering rules for the SDV–PiRacer team.  
+This document defines the internal engineering rules for the team.  
 It provides standards for coding, documentation, version control, testing, and sprint management to ensure technical traceability and team consistency.
 
 ---
@@ -17,27 +17,35 @@ The goal of this guide is to:
 
 ## 2. Repository Structure
 
-── src/
-│ ├── control/
-│ ├── perception/
-│ ├── middleware/
-│ ├── ui/
-│ └── cloud/
-├── docs/
-│ ├── architecture/
-│ ├── requirements/
-│ ├── safety/
-│ ├── tests/
-│ ├── ENGINEERING_GUIDE.md
-│ └── DOCS_STYLE_GUIDE.md
-├── tests/
-│ ├── unit/
-│ ├── integration/
-│ └── reports/
-├── .github/
-│ ├── workflows/
-│ └── ISSUE_TEMPLATE/
-└── README.md
+```
+📦 team03_DuckOnWheels/
+│
+├── src/                         # Source code (C++ / Python modules)
+│   ├── control/                 # Motor & steering control logic (PWM, PID)
+│   ├── perception/              # Vision and sensor fusion
+│   ├── middleware/              # Communication layer (C++, MQTT, CAN)
+│   ├── ui/                      # Qt dashboard
+│   └── cloud/                   # Telemetry and cloud integration (future)
+│
+├── docs/                        # Documentation and reference material
+│   ├── architecture/            # System diagrams & design docs
+│   ├── requirements/            # Functional and system requirements
+│   ├── safety/                  # TSF & safety compliance notes
+│   ├── tests/                   # Validation reports and test specs
+│   ├── ENGINEERING_GUIDE.md     # Internal development rules
+│   └── DOCS_STYLE_GUIDE.md      # Doxygen and documentation guidelines
+│
+├── tests/                       # Unit and integration test suites
+│   ├── unit/                    # Module-level tests
+│   ├── integration/             # System-level tests
+│   └── reports/                 # Generated logs and reports
+│
+├── .github/                     # CI/CD workflows and automation
+│   ├── workflows/               # GitHub Actions (CI, Docs, etc.)
+│   └── ISSUE_TEMPLATE/          # Templates for issues and PRs
+│
+└── README.md                    # Main project documentation
+```
 
 ---
 

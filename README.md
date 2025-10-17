@@ -11,13 +11,16 @@
 
 ## Overview
 
-**Duck On Wheels** is part of the **SEA ME initiative**, an educational and experimental environment focused on **Software Defined Vehicles (SDV)** and **Advanced Driver Assistance Systems (ADAS)**.
+**Duck On Wheels** is part of the **SEA ME program**, which explores Software Defined Vehicle (SDV) and Advanced Driver Assistance Systems (ADAS) concepts using accessible, open-hardware platforms.
+
+This proof-of-concept project runs on a PiRacer with Raspberry Pi 5, serving as a small-scale experimental SDV.
+It aims to build a modular stack for:
 
 This project uses a **PiRacer** powered by **Raspberry Pi 5** to explore:
-- Modular SDV software architecture  
-- Real-time control and perception  
-- Prototype-level ADAS features  
-- Reliable and traceable development workflows (TSF-aligned)
+- Real-time motor and steering control  
+- Perception through onboard sensors and camera
+- Basic ADAS functions such as lane assist and alerting  
+- A transparent and traceable engineering workflow aligned with Trustable Software Framework (TSF) principles
 
 ---
 
@@ -34,4 +37,15 @@ This project uses a **PiRacer** powered by **Raspberry Pi 5** to explore:
 
 ---
 
+## Internal References
 
+| Document | Description |
+|-----------|-------------|
+| [ENGINEERING_GUIDE.md](docs/ENGINEERING_GUIDE.md) | Internal engineering workflow, branching, and CI/CD rules |
+| [DOCS_STYLE_GUIDE.md](docs/DOCS_STYLE_GUIDE.md) | Doxygen documentation and comment style conventions |
+
+---
+
+## License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
