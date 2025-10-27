@@ -1,0 +1,45 @@
+#---------------------------------------------
+# Doxyfile for SDV-PiRacer Documentation
+#---------------------------------------------
+
+# Project info
+PROJECT_NAME           = "Team 03 Duck on Wheels - PiRacer SEA:ME"
+PROJECT_BRIEF          = "Software Defined Vehicle PoC using PiRacer"
+OUTPUT_DIRECTORY       = docs
+OUTPUT_LANGUAGE        = English
+OPTIMIZE_OUTPUT_FOR_C  = YES
+OPTIMIZE_OUTPUT_JAVA   = NO
+
+# Source directories
+INPUT                  = src include
+RECURSIVE              = YES
+
+# Output format
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_LATEX         = NO
+
+# File patterns
+FILE_PATTERNS          = *.c *.cpp *.h *.hpp *.py
+EXCLUDE_PATTERNS       = */tests/* */build/*
+
+# Documentation structure
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = NO
+EXTRACT_STATIC         = NO
+INLINE_SOURCES         = YES
+SOURCE_BROWSER         = YES
+STRIP_FROM_PATH        = .
+
+# Warnings
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_LOGFILE           = doxygen_warnings.log
+
+# Diagrams (keep disabled for now)
+HAVE_DOT               = NO
+CLASS_DIAGRAMS         = NO
+
+# Misc
+QUIET                  = NO
+GENERATE_TREEVIEW      = YES

@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    name: Build placeholder
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup environment
+        run: echo "🧱 Setting up environment... (placeholder CI)"
+
+      - name: Simulate build
+        run: |
+          echo "🔧 No build steps yet."
+          echo "✅ CI pipeline placeholder completed successfully."
